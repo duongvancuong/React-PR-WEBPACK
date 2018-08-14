@@ -3,5 +3,42 @@
     "env",
     "react",
     "stage-2"
-  ]
+  ],
+  "env": {
+    "development": {
+      "presets": [
+        "env",
+        "react-hmre"
+      ],
+      "plugins": []
+    },
+    "production": {
+      "presets": [
+        [
+          "env",
+        {
+          "es2015": {
+            "modules": false
+          }
+        }
+        ]
+      ],
+      "plugins": [
+        "transform-react-constant-elements",
+        "transform-react-remove-prop-types",
+        "import"
+      ]
+    },
+    "test": {
+      "plugins": [
+        [
+          "babel-plugin-webpack-loaders",
+          {
+            "config": "${CONFIG}",
+            "verbose": true
+          }
+        ]
+      ]
+    }
+  }
 }
