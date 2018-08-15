@@ -1,12 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import { render } from 'react-dom';
+import createHashHistory from 'history/createHashHistory';
+import { ConnectedRouter } from 'react-router-redux';
+
+import routes from './routes';
 import './styles/app.scss';
+import registerServiceWorker from './registerServiceWorker';
+import configureStore from './store/configureStore';
 
-const title = 'My Minimal React Webpack Babel Setup';
+const history = createHashHistory();
+const store = configureStore();
 
-ReactDOM.render(
-  <div className="container">{title}</div>,
-  document.getElementById('app'),
+render(
+  <Provider store={store}>
+    <ConnectedRouter history={history} children={routes} />
+  </Provider>,
+  document.getElementById('root')
 );
+registerServiceWorker();
 
 module.hot.accept();
