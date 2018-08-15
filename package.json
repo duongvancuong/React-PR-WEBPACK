@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.jsx",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js  --env development",
-    "build": "webpack --mode production"
+    "start": "webpack-dev-server --config ./config/webpack.development.js  --env development",
+    "build": "webpack --config ./config/webpack.production.js --mode production"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +31,8 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-2": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
@@ -52,15 +54,40 @@
     "react-hot-loader": "^4.2.0",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
+    "sw-precache-webpack-plugin": "^0.11.5",
     "url-loader": "^1.0.1",
     "webpack": "^4.9.1",
     "webpack-cli": "^2.1.4",
     "webpack-dev-server": "^3.1.4",
-    "webpack-merge": "^4.1.2"
+    "webpack-manifest-plugin": "^2.0.3",
+    "webpack-merge": "^4.1.2",
+    "whatwg-fetch": "^2.0.4"
   },
   "dependencies": {
+    "chalk": "^2.4.1",
+    "dotenv": "^6.0.0",
+    "dotenv-expand": "^4.2.0",
+    "fast-memoize": "^2.5.1",
+    "fs-extra": "^7.0.0",
+    "object-assign": "^4.1.1",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "prop-types": "^15.6.2",
     "purecss": "^1.0.0",
+    "raf": "^3.4.0",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dev-utils": "^5.0.1",
+    "react-dom": "^16.4.0",
+    "react-loadable": "^5.5.0",
+    "react-loading-components": "^1.1.12",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "recompose": "^0.28.2",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-saga": "^0.16.0",
+    "reselect": "^3.0.1",
+    "styled-components": "^3.4.2"
   }
 }

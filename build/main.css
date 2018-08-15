@@ -1,0 +1,10 @@
+@font-face {
+  /* Add other formats as you see fit */
+}
+
+body {
+  background: cornsilk;
+  background-image: url(/5ff36cd0978471d6929ad533dcab3c29.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+}

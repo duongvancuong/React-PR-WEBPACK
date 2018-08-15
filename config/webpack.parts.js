@@ -1,10 +1,14 @@
+const webpack = require('webpack');
 const PurifyCSSPlugin = require('purifycss-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
 
 exports.devServer = ({ host, port } = {}) => ({
   devServer: {
     stats: 'errors-only',
     contentBase: './dist',
+    host: process.env.HOST, // Defaults to `localhost`
+    port: process.env.PORT, // Defaults to 8080
     hot: true,
     open: true,
     overlay: true,
@@ -15,6 +19,13 @@ exports.devServer = ({ host, port } = {}) => ({
       poll: 1000,
     },
   },
+  plugins: [
+    // Ignore node_modules so CPU usage with poll
+    // watching drops significantly.
+    new webpack.WatchIgnorePlugin([
+      path.join(__dirname, "node_modules")
+    ]),
+  ],
 });
 
 exports.purifyCSS = ({ paths }) => ({
